@@ -33,9 +33,12 @@ def total_summary():
             purchases_by_company[ticker].append(purchase)
         else:
             purchases_by_company[ticker] = [purchase] 
-portfolio_total = 0
-for ticker, purchases in purchases_by_company.items():
-    total = 0
+
+#func to calculate the totals
+def totals():
+    portfolio_total = 0
+    for ticker, purchases in purchases_by_company.items():
+        total = 0
     for purchase in purchases:
         shares = purchase[1]
         price = purchase[3]
@@ -43,13 +46,14 @@ for ticker, purchases in purchases_by_company.items():
     portfolio_total += total
     print(f"* {ticker} Holdings: ${total}")
 
-print("\nPortfolio Total")
-print("----------------")
-print(f"Total value of stock in portfolio: ${portfolio_total}")
+    print("\nPortfolio Total")
+    print("----------------")
+    print(f"Total value of stock in portfolio: ${portfolio_total}")
 
 
 
 
 stock_purchases()
 total_summary()
+totals()
 
